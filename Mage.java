@@ -8,14 +8,12 @@ public class Mage extends Character {
 	}
 	
 	public void mageHitPoints(int hp) {
-		hp = hp + super.getStrength() * HP_MODIFIER;
+		hp = hp + super.getStrength() * STAT_MODIFIER;
 		super.setHitPoints(hp);
 	}
 	
 	public void setName(String name) {
 		super.setName(name + " (Mage)");
 	}
-	
-	
 
 }

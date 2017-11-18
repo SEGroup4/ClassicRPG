@@ -5,12 +5,21 @@ public class Damage {
 	//Character chars;
 	// needsan equals for objects passed into this?
 	public Damage() {
-		this.rand = null;
+		this.rand = new Random();
 	}
 
+	private int randomDamage(int base, int stat) {
+		int damage = rand.nextInt((stat + 1) - base) + base;
+		return damage;
+	}
+	
 	public int attackDamage(int strength) {
-	   if (strength == Fighter.FIGHTER_STRENGTH) {
-		   return 4; 
+	    int base = strength / Character.STAT_MODIFIER;
+	    strength = strength + Character.STAT_MODIFIER;
+	    
+		if (strength == Fighter.FIGHTER_STRENGTH + Character.STAT_MODIFIER) {
+		   int fighterDamage = randomDamage(base, strength);
+		   return fighterDamage; 
 	   }
 	   return 1;
 		

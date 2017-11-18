@@ -7,14 +7,36 @@ public class ClassicRPGTester {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		Fighter fight = new Fighter();
+		Fighter enemyFight = new Fighter();
 		Mage magicUser = new Mage();
+		Mage enemyMagicUser = new Mage();
 		Rogue thief = new Rogue();
+		Rogue enemyThief = new Rogue();
 		Paladin pald = new Paladin();
+		Paladin enemyPald = new Paladin();
+		Damage damage = new Damage();
+		BattleMenu<Character> menu = new BattleMenu<Character>();
+		ArrayList<Character> chars = new ArrayList<Character>();
+		ArrayList<Character> enemy = new ArrayList<Character>();
 		
-		Character mage = magicUser;
 		Character fighter = fight;
+		chars.add(fighter);
+		Character mage = magicUser;
+		chars.add(mage);
 		Character rogue = thief;
+		chars.add(rogue);
 		Character paladin = pald;
+		chars.add(paladin);
+		
+		Character enemyFighter = enemyFight;
+		enemy.add(enemyFighter);
+		Character enemyMage = enemyMagicUser;
+		enemy.add(enemyMage);
+		Character enemyRogue = enemyThief;
+		enemy.add(enemyRogue);
+		Character enemyPaladin = enemyPald;
+		enemy.add(enemyPaladin);
+		
 		
 		System.out.println("Name your fighter: ");
 		String name = input.nextLine();
@@ -29,6 +51,12 @@ public class ClassicRPGTester {
 		name = input.nextLine();
 		paladin.setName(name);
 		
+		// need to establish random enemy names from file?
+		enemyFighter.setName("Rick");
+		enemyMage.setName("Tom");
+		enemyRogue.setName("Locke");
+		enemyPaladin.setName("Hue");
+
 		fight.fighterHitPoints(ALL_CLASS_HP);
 		magicUser.mageHitPoints(ALL_CLASS_HP);
 		thief.rogueHitPoints(ALL_CLASS_HP);
@@ -43,24 +71,13 @@ public class ClassicRPGTester {
 		System.out.println(paladin.getName());
 		System.out.println("HP: " + paladin.getHitPoints());
 		
-		// interface or maybe use inheritance to use a for loop to call each chars damage
-		Damage damage = new Damage();
-		//int attackDamage = damage.attackDamage(fighter.getStrength());
-		ArrayList<Character> chars = new ArrayList<Character>();
-		chars.add(fighter);
-		chars.add(mage);
-		chars.add(rogue);
-		chars.add(paladin);
-		
-		for (Character element : chars) {
-			System.out.println(element.getHitPoints());
-			element.setHitPoints(element.getHitPoints() - damage.attackDamage(element.getStrength()));
-			System.out.println(element.getHitPoints());
+		// NEEDS MORE WORK HERE
+		for (Character element : enemy) {
+			//System.out.println(fighter.getHitPoints());
+			//System.out.println(enemyFighter.getHitPoints());
+			System.out.println(element.getName());
+			menu.actionMenu(input, element, enemy);
 		}
-		
-		
-		
-		
 				
 		input.close();
 	}

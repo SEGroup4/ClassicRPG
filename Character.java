@@ -1,6 +1,6 @@
 
 public class Character {
-	public static final int HP_MODIFIER = 2;
+	public static final int STAT_MODIFIER = 2;
 	private String name;
 	private int hitPoints;
 	private int magicPoints;

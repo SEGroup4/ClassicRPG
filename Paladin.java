@@ -8,7 +8,7 @@ public class Paladin extends Character {
 	}
 	
 	public void paladinHitPoints(int hp) {
-		hp = hp + super.getStrength() * HP_MODIFIER;
+		hp = hp + super.getStrength() * STAT_MODIFIER;
 		super.setHitPoints(hp);
 	}
 	
