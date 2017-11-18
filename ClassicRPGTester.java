@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ClassicRPGTester {
@@ -28,10 +29,10 @@ public class ClassicRPGTester {
 		name = input.nextLine();
 		paladin.setName(name);
 		
-		fighter.setHitPoints(ALL_CLASS_HP);
-		mage.setHitPoints(ALL_CLASS_HP);
-		rogue.setHitPoints(ALL_CLASS_HP);
-		paladin.setHitPoints(ALL_CLASS_HP);
+		fight.fighterHitPoints(ALL_CLASS_HP);
+		magicUser.mageHitPoints(ALL_CLASS_HP);
+		thief.rogueHitPoints(ALL_CLASS_HP);
+		pald.paladinHitPoints(ALL_CLASS_HP);
 		
 		System.out.println(fighter.getName());
 		System.out.println("HP: " + fighter.getHitPoints() + "\n");
@@ -42,6 +43,25 @@ public class ClassicRPGTester {
 		System.out.println(paladin.getName());
 		System.out.println("HP: " + paladin.getHitPoints());
 		
+		// interface or maybe use inheritance to use a for loop to call each chars damage
+		Damage damage = new Damage();
+		//int attackDamage = damage.attackDamage(fighter.getStrength());
+		ArrayList<Character> chars = new ArrayList<Character>();
+		chars.add(fighter);
+		chars.add(mage);
+		chars.add(rogue);
+		chars.add(paladin);
+		
+		for (Character element : chars) {
+			System.out.println(element.getHitPoints());
+			element.setHitPoints(element.getHitPoints() - damage.attackDamage(element.getStrength()));
+			System.out.println(element.getHitPoints());
+		}
+		
+		
+		
+		
+				
 		input.close();
 	}
 

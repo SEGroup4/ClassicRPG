@@ -4,10 +4,10 @@ public class Paladin extends Character {
 	
 	public Paladin() {
 		super();
+		super.setStrength(PALADIN_STRENGTH);
 	}
 	
-	public void setHitPoints(int hp) {
-		setStrength(PALADIN_STRENGTH);
+	public void paladinHitPoints(int hp) {
 		hp = hp + super.getStrength() * HP_MODIFIER;
 		super.setHitPoints(hp);
 	}

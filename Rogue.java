@@ -4,10 +4,10 @@ public class Rogue extends Character {
 
 	public Rogue() {
 		super();
+		super.setStrength(ROGUE_STRENGTH);
 	}
 	
-	public void setHitPoints(int hp) {
-		setStrength(ROGUE_STRENGTH);
+	public void rogueHitPoints(int hp) {
 		hp = hp + super.getStrength() * HP_MODIFIER;
 		super.setHitPoints(hp);
 	}

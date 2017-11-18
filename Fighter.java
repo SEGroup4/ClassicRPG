@@ -4,10 +4,10 @@ public class Fighter extends Character {
 	
 	public Fighter() {
 		super();
+		super.setStrength(FIGHTER_STRENGTH);
 	}
 	
-	public void setHitPoints(int hp) {
-		setStrength(FIGHTER_STRENGTH);
+	public void fighterHitPoints(int hp) {
 		hp = hp + super.getStrength() * HP_MODIFIER;
 		super.setHitPoints(hp);
 	}
