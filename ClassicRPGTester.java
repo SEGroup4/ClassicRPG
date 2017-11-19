@@ -88,6 +88,7 @@ public class ClassicRPGTester {
 				}
 			}
 
+			if (!flag) {
 				menu.autoEnemy(chars, input);
 				System.out.println("");
 				if (fighter.getHitPoints() <= 0 && mage.getHitPoints() <= 0 && rogue.getHitPoints() <= 0
@@ -95,7 +96,7 @@ public class ClassicRPGTester {
 					System.out.println("GAME OVER");
 					System.exit(0);
 				}
-			
+			}
 		}
 		input.close();
 	}
