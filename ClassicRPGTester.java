@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class ClassicRPGTester {
 	public static final int ALL_CLASS_HP = 20;
-	
+
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		Fighter fight = new Fighter();
@@ -14,11 +14,11 @@ public class ClassicRPGTester {
 		Rogue enemyThief = new Rogue();
 		Paladin pald = new Paladin();
 		Paladin enemyPald = new Paladin();
-		Damage damage = new Damage();
+		// Damage damage = new Damage();
 		BattleMenu<Character> menu = new BattleMenu<Character>();
 		ArrayList<Character> chars = new ArrayList<Character>();
 		ArrayList<Character> enemy = new ArrayList<Character>();
-		
+
 		Character fighter = fight;
 		chars.add(fighter);
 		Character mage = magicUser;
@@ -27,7 +27,7 @@ public class ClassicRPGTester {
 		chars.add(rogue);
 		Character paladin = pald;
 		chars.add(paladin);
-		
+
 		Character enemyFighter = enemyFight;
 		enemy.add(enemyFighter);
 		Character enemyMage = enemyMagicUser;
@@ -36,8 +36,7 @@ public class ClassicRPGTester {
 		enemy.add(enemyRogue);
 		Character enemyPaladin = enemyPald;
 		enemy.add(enemyPaladin);
-		
-		
+
 		System.out.println("Name your fighter: ");
 		String name = input.nextLine();
 		fighter.setName(name);
@@ -50,7 +49,7 @@ public class ClassicRPGTester {
 		System.out.println("Name your Paladin: ");
 		name = input.nextLine();
 		paladin.setName(name);
-		
+
 		// need to establish random enemy names from file?
 		enemyFighter.setName("Rick");
 		enemyMage.setName("Tom");
@@ -61,24 +60,43 @@ public class ClassicRPGTester {
 		magicUser.mageHitPoints(ALL_CLASS_HP);
 		thief.rogueHitPoints(ALL_CLASS_HP);
 		pald.paladinHitPoints(ALL_CLASS_HP);
-		
-		System.out.println(fighter.getName());
-		System.out.println("HP: " + fighter.getHitPoints() + "\n");
-		System.out.println(mage.getName());
-		System.out.println("HP: " + mage.getHitPoints() + "\n");
-		System.out.println(rogue.getName());
-		System.out.println("HP: " + rogue.getHitPoints() + "\n");
-		System.out.println(paladin.getName());
-		System.out.println("HP: " + paladin.getHitPoints());
-		
-		// NEEDS MORE WORK HERE
-		for (Character element : enemy) {
-			//System.out.println(fighter.getHitPoints());
-			//System.out.println(enemyFighter.getHitPoints());
+		enemyFight.fighterHitPoints(ALL_CLASS_HP);
+		enemyMagicUser.mageHitPoints(ALL_CLASS_HP);
+		enemyThief.rogueHitPoints(ALL_CLASS_HP);
+		enemyPald.paladinHitPoints(ALL_CLASS_HP);
+
+		for (Character element : chars) {
 			System.out.println(element.getName());
-			menu.actionMenu(input, element, enemy);
+			System.out.println("HP: " + element.getHitPoints() + "\n");
 		}
-				
+
+		// NEEDS MORE WORK HERE
+		boolean flag = false;
+		while (!flag) {
+			for (Character element : enemy) {
+				System.out.println(element.getName());
+				menu.actionMenu(input, element, enemy);
+
+				if (enemyFighter.getHitPoints() <= 0 && enemyMage.getHitPoints() <= 0 && enemyRogue.getHitPoints() <= 0
+						&& enemyPaladin.getHitPoints() <= 0) {
+					System.out.println("Victory! \nPress enter to continue...");
+					input.nextLine();
+					@SuppressWarnings("unused")
+					String junk = input.nextLine();
+					flag = true;
+					break;
+				}
+			}
+
+				menu.autoEnemy(chars, input);
+				System.out.println("");
+				if (fighter.getHitPoints() <= 0 && mage.getHitPoints() <= 0 && rogue.getHitPoints() <= 0
+						&& paladin.getHitPoints() <= 0) {
+					System.out.println("GAME OVER");
+					System.exit(0);
+				}
+			
+		}
 		input.close();
 	}
 

@@ -1,10 +1,12 @@
 
 public class Fighter extends Character {
 	public static final int FIGHTER_STRENGTH = 7;
+	public static final int FIGHTER_MAGICPOINTS = 1;
 	
 	public Fighter() {
 		super();
 		super.setStrength(FIGHTER_STRENGTH);
+		super.setMagicPoints(FIGHTER_MAGICPOINTS);
 	}
 	
 	public void fighterHitPoints(int hp) {
