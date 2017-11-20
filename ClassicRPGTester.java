@@ -1,10 +1,12 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ClassicRPGTester {
 	public static final int ALL_CLASS_HP = 20;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException, IOException {
 		Scanner input = new Scanner(System.in);
 		Fighter fight = new Fighter();
 		Fighter enemyFight = new Fighter();
@@ -14,7 +16,7 @@ public class ClassicRPGTester {
 		Rogue enemyThief = new Rogue();
 		Paladin pald = new Paladin();
 		Paladin enemyPald = new Paladin();
-		// Damage damage = new Damage();
+		Files files = new Files();
 		BattleMenu<Character> menu = new BattleMenu<Character>();
 		ArrayList<Character> chars = new ArrayList<Character>();
 		ArrayList<Character> enemy = new ArrayList<Character>();
@@ -39,22 +41,37 @@ public class ClassicRPGTester {
 
 		System.out.println("Name your fighter: ");
 		String name = input.nextLine();
-		fighter.setName(name);
+		fighter.setName(name, "(Fighter)");
 		System.out.println("Name your mage: ");
 		name = input.nextLine();
-		mage.setName(name);
+		mage.setName(name, "(Mage)");
 		System.out.println("Name your Rogue: ");
 		name = input.nextLine();
-		rogue.setName(name);
+		rogue.setName(name, ("Rogue"));
 		System.out.println("Name your Paladin: ");
 		name = input.nextLine();
-		paladin.setName(name);
+		paladin.setName(name, "(Paladin)");
 
-		// need to establish random enemy names from file?
-		enemyFighter.setName("Rick");
-		enemyMage.setName("Tom");
-		enemyRogue.setName("Locke");
-		enemyPaladin.setName("Hue");
+		try {
+			files.openMonsters();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found.");
+			System.exit(0);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		String monsterType = files.readMonster();
+		enemyFighter.setName(monsterType, "");
+		files.openMonsters();  // Need to fix throws declaration here...
+		monsterType = files.readMonster();
+		enemyMage.setName(monsterType, "");
+		files.openMonsters();
+		monsterType = files.readMonster();
+		enemyRogue.setName(monsterType, "");
+		files.openMonsters();
+		monsterType = files.readMonster();
+		enemyPaladin.setName(monsterType, "");
 
 		fight.fighterHitPoints(ALL_CLASS_HP);
 		magicUser.mageHitPoints(ALL_CLASS_HP);
@@ -70,13 +87,12 @@ public class ClassicRPGTester {
 			System.out.println("HP: " + element.getHitPoints() + "\n");
 		}
 
-		// NEEDS MORE WORK HERE
 		boolean flag = false;
 		while (!flag) {
 			int i = 0;
-			for (Character element : enemy) {
+			while (i <= (enemy.size() - 1)) {
 				System.out.println(chars.get(i).getName());
-				menu.actionMenu(input, element, enemy, chars.get(i));
+				menu.actionMenu(input, enemy.get(i), enemy, chars.get(i));
 				if (enemyFighter.getHitPoints() <= 0 && enemyMage.getHitPoints() <= 0 && enemyRogue.getHitPoints() <= 0
 						&& enemyPaladin.getHitPoints() <= 0) {
 					System.out.println("Victory! \nPress enter to continue...");
@@ -86,11 +102,12 @@ public class ClassicRPGTester {
 					flag = true;
 					break;
 				}
+
 				i++;
 			}
 
 			if (!flag) {
-				menu.autoEnemy(chars, input);
+				menu.autoEnemy(chars, input, enemy);
 				System.out.println("");
 				if (fighter.getHitPoints() <= 0 && mage.getHitPoints() <= 0 && rogue.getHitPoints() <= 0
 						&& paladin.getHitPoints() <= 0) {

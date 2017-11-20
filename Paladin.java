@@ -16,8 +16,8 @@ public class Paladin extends Character {
 		super.setHitPoints(hp);
 	}
 	
-	public void setName(String name) {
-		super.setName(name + " (Paladin)");
+	public void setName(String name, String charType) {
+		super.setName(name, charType);
 	}
 
 }

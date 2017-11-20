@@ -15,13 +15,6 @@ public class Character {
 		this.strength = 0;
 		this.defending = false;
 	}
-	
-//	public Character(int hitPoints, int magicPoints, int speed, int strength) {
-//		this.hitPoints = hitPoints;
-//		this.magicPoints = magicPoints;
-//		this.speed = speed;
-//		this.strength = strength;
-//	}
 
 	/**
 	 * @return the name
@@ -33,8 +26,9 @@ public class Character {
 	/**
 	 * @param name the name to set
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String name, String charType) {
+		String fullName = name + " " + charType;
+		this.name = fullName;
 	}
 
 	/**
@@ -48,6 +42,9 @@ public class Character {
 	 * @param hitPoints the hitPoints to set
 	 */
 	public void setHitPoints(int hitPoints) {
+		if (hitPoints <= 0) {
+			hitPoints = 0;
+		}
 		this.hitPoints = hitPoints;
 	}
 

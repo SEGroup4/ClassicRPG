@@ -10,7 +10,7 @@ public class Damage {
 		this.base = 0;
 	}
 
-	private int randomDamage(int base, int stat) {
+	public int randomDamage(int base, int stat) {
 		int damage = rand.nextInt((stat + 1) - base) + base;
 		return damage;
 	}

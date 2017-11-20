@@ -16,8 +16,8 @@ public class Fighter extends Character {
 		super.setHitPoints(hp);
 	}
 	
-	public void setName(String name) {
-		super.setName(name + " (Fighter)");
+	public void setName(String name, String charType) {
+		super.setName(name, charType);
 	}
 	
 //	public void levelUp() {

@@ -1,0 +1,35 @@
+1.Troglodyte
+2.Ghost
+3.Fire beetle
+4.Djinni
+5.Ooze
+6.Yeti
+7.Ettin
+8.Pixie
+9.Stone golem
+10.Animal
+11.Abberation
+12.Retilian
+13.Ghost
+14.Zombie
+15.Spider
+16.Flan
+17.Orc
+18.Goblin
+19.Gnoll
+20.Elemental
+21.Harpy
+22.Scorpian
+23.Lich
+24.Basilisk
+25.Adamantoise
+26.Shaman
+27.Centaur
+28.Gremlin
+29.Hellhound
+30.Satyr
+31.Gorgon
+32.Succubus
+33.Hobgoblin
+34.Giant ant
+35.Wood golem

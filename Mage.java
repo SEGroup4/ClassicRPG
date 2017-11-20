@@ -16,8 +16,8 @@ public class Mage extends Character {
 		super.setHitPoints(hp);
 	}
 	
-	public void setName(String name) {
-		super.setName(name + " (Mage)");
+	public void setName(String name, String charType) {
+		super.setName(name, charType);
 	}
 
 }

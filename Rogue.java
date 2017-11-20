@@ -16,8 +16,8 @@ public class Rogue extends Character {
 		super.setHitPoints(hp);
 	}
 	
-	public void setName(String name) {
-		super.setName(name + " (Rogue)");
+	public void setName(String name, String charType) {
+		super.setName(name, charType);
 	}
 
 }
