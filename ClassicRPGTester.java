@@ -73,10 +73,10 @@ public class ClassicRPGTester {
 		// NEEDS MORE WORK HERE
 		boolean flag = false;
 		while (!flag) {
+			int i = 0;
 			for (Character element : enemy) {
-				System.out.println(element.getName());
-				menu.actionMenu(input, element, enemy);
-
+				System.out.println(chars.get(i).getName());
+				menu.actionMenu(input, element, enemy, chars.get(i));
 				if (enemyFighter.getHitPoints() <= 0 && enemyMage.getHitPoints() <= 0 && enemyRogue.getHitPoints() <= 0
 						&& enemyPaladin.getHitPoints() <= 0) {
 					System.out.println("Victory! \nPress enter to continue...");
@@ -86,6 +86,7 @@ public class ClassicRPGTester {
 					flag = true;
 					break;
 				}
+				i++;
 			}
 
 			if (!flag) {

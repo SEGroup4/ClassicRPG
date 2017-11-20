@@ -2,16 +2,22 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BattleMenu<T extends Character> {
-	Damage damage;
+	private Damage damage;
+	//private Damage fighterStance;
+	//private Damage mageStance;
+	//private Damage rogueStance;
+	//private Damage paladinStance;
+	//private boolean flag;
 	//Character enemy1;
 	//Character enemy2;
 	//Character enemy3;
 	
 	public BattleMenu() {
 		damage = new Damage();
+	//	this.flag = false;
 	}
 	
-	public int actionMenu(Scanner input, Character element, ArrayList<T> enemies) {
+	public void actionMenu(Scanner input, Character element, ArrayList<T> enemies, Character chars) {
 		System.out.println("Action Menu: \n" + "1. Attack\n2. Defend\n3. Ability\n4. Item");
 		int menuItem = input.nextInt();
 
@@ -22,7 +28,7 @@ public class BattleMenu<T extends Character> {
 			enemyMenu(input, attackDamage, enemies);
 			break;
 		case 2:
-			//damage.defend();
+			damage.defensiveStance(chars);
 			break;
 		case 3:
 			int abilityDamage = damage.abilityDamage(element.getMagicPoints());
@@ -30,7 +36,7 @@ public class BattleMenu<T extends Character> {
 			enemyMenu(input, abilityDamage, enemies);
 			break;
 		}
-		return 1;
+	//	return 1;
 	}
 	
 	private void displayChars(ArrayList<T> chars) {
@@ -125,18 +131,28 @@ public class BattleMenu<T extends Character> {
 	}
 	
 	public void autoEnemy(ArrayList<T> chars, Scanner input) {
+		//Damage fighterDefend = new Damage();
+		//Damage mageDefend = new Damage();
+		//Damage rogueDefend = new Damage();
+		//Damage paladinDefend = new Damage();
+		
 		System.out.println("\n<<Enemy's Turn>>");
 		input.nextLine();
 		System.out.println("Press enter to continue...");
 		@SuppressWarnings("unused")
 		String junk1 = input.nextLine();
 		
+		// Continue here.  Need to get back to print statements in Damage.
 		for (Character element : chars) {
 			int attackDamage = damage.attackDamage(element.getStrength());
+			if (element.isDefending()) {
+				attackDamage = damage.defend(element.getSpeed(), attackDamage, element);
+				element.setDefending(false);
+			}
 			element.setHitPoints(element.getHitPoints() - attackDamage);
-			System.out
-			.println("\nThe enemy hit " + element.getName() + " for " + attackDamage + " points of damage. \nThe hit points of "
-					+ element.getName() + " is now " + element.getHitPoints());
+			System.out.println("\nThe enemy hit " + element.getName() + " for " + attackDamage
+					+ " points of damage. \nThe hit points of " + element.getName() + " is now "
+					+ element.getHitPoints());
 			displayChars(chars);
 			System.out.println("Press enter to continue...");
 			@SuppressWarnings("unused")

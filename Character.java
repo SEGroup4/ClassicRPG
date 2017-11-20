@@ -6,20 +6,22 @@ public class Character {
 	private int magicPoints;
 	private int speed;
 	private int strength;
+	private boolean defending;
 
 	public Character() {
 		this.hitPoints = 0;
 		this.magicPoints = 0;
 		this.speed = 0;
 		this.strength = 0;
+		this.defending = false;
 	}
 	
-	public Character(int hitPoints, int magicPoints, int speed, int strength) {
-		this.hitPoints = hitPoints;
-		this.magicPoints = magicPoints;
-		this.speed = speed;
-		this.strength = strength;
-	}
+//	public Character(int hitPoints, int magicPoints, int speed, int strength) {
+//		this.hitPoints = hitPoints;
+//		this.magicPoints = magicPoints;
+//		this.speed = speed;
+//		this.strength = strength;
+//	}
 
 	/**
 	 * @return the name
@@ -90,7 +92,19 @@ public class Character {
 	public void setStrength(int strength) {
 		this.strength = strength;
 	}
-	
-	
+
+	/**
+	 * @return the defending
+	 */
+	public boolean isDefending() {
+		return defending;
+	}
+
+	/**
+	 * @param defending the defending to set
+	 */
+	public void setDefending(boolean defending) {
+		this.defending = defending;
+	}
 
 }
