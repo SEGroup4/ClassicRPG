@@ -8,27 +8,47 @@ public class BattleMenu<T extends Character> {
 		damage = new Damage();
 	}
 
-	public void actionMenu(Scanner input, Character element, ArrayList<T> enemies, Character chars) {
+	/**
+	 * Produces a menu for player to choose options of attack, defend, ability or
+	 * item, and then, depending on choice, calls methods to act on choice.
+	 * 
+	 * @param input this scanner object is needed from main because once a scanner is
+	 * closed you cannot reopen it (I can explain further if needed)
+	 * @param enemies an array of enemy objects. This is just here to pass it to the
+	 * private enemyMenu method
+	 * @param chars the current character object of player in the for/while loop
+	 */
+	public void actionMenu(Scanner input, ArrayList<T> enemies, Character chars) {
 		System.out.println("Action Menu: \n" + "1. Attack\n2. Defend\n3. Ability\n4. Item");
 		int menuItem = input.nextInt();
 
 		switch (menuItem) {
 		case 1:
-			int attackDamage = damage.attackDamage(element.getStrength());
+			// Acquires attack damage of current player character and passes it to an enemy
+			// menu for player to choose who to apply that damage to
+			int attackDamage = damage.attackDamage(chars.getStrength());
 			System.out.println("Whom do you wish to attack?");
 			enemyMenu(input, attackDamage, enemies);
 			break;
 		case 2:
+			// Sets a flag that a player chose defend for a character. (During enemy turn)
+			// When enemy attacks said character flag signals to use method defend in class
+			// Damage
 			damage.defensiveStance(chars);
 			break;
 		case 3:
-			int abilityDamage = damage.abilityDamage(element.getMagicPoints());
+			// Same as case one only with ability damage
+			int abilityDamage = damage.abilityDamage(chars.getMagicPoints());
 			System.out.println("Whom do you wish to cast your ability on?");
 			enemyMenu(input, abilityDamage, enemies);
 			break;
 		}
 	}
 
+	/**
+	 * Displays all character data relevant for a battle sequence
+	 * @param chars the objects in player and/or enemy array list
+	 */
 	private void displayChars(ArrayList<T> chars) {
 		int i = 1;
 		for (T element : chars) {
@@ -37,9 +57,21 @@ public class BattleMenu<T extends Character> {
 		}
 	}
 
+	/**
+	 * Menu of enemy characters currently battling for the player to apply attack or
+	 * ability on.  Also determines if enemy is dead when applying attack or ability
+	 * and notifies player when enemy hit points are 0.
+	 * 
+	 * @param input the Scanner object from main
+	 * @param enemyDamage the damage to be applied to enemy
+	 * @param enemies an array list of enemies
+	 */
 	private void enemyMenu(Scanner input, int enemyDamage, ArrayList<T> enemies) {
 		boolean flag = false;
 
+		// This while loop could also be changed to a for loop and probably would be 
+		// better if it was.  Corrections like this here and the loops in main I can 
+		// get to when I have time unless someone else does it.
 		while (!flag) {
 			displayChars(enemies);
 			int menuItem = input.nextInt();
@@ -137,6 +169,15 @@ public class BattleMenu<T extends Character> {
 		}
 	}
 
+	/**
+	 * Automatically does all menu choices and etc for enemy turn. Enemy simply
+	 * attacks player characters one after the other in the order of their objects
+	 * in array list. Could be changed to random choice.
+	 * 
+	 * @param chars the array list of player characters
+	 * @param input the Scanner object from main
+	 * @param enemy the array list of enemy characters
+	 */
 	public void autoEnemy(ArrayList<T> chars, Scanner input, ArrayList<T> enemy) {
 		System.out.println("\n<<Enemy's Turn>>");
 		input.nextLine();
@@ -145,17 +186,25 @@ public class BattleMenu<T extends Character> {
 		@SuppressWarnings("unused")
 		String junk1 = input.nextLine();
 		int deaths = 0;
+		
+		// Again, iterates through array attacking player characters one after the other
+		// in the order of the array. For each enemy that is dead, the for loop
+		// decreases by one so that enemy that is dead will not attack
 		for (int i = 0; i < (chars.size() - deaths); i++) {
 			if (enemy.get(i).getHitPoints() == 0) {
 				deaths++;
 			}
 
 			int attackDamage = damage.attackDamage(chars.get(i).getStrength());
+			// Tests if boolean instance field 'defending' is true. If true, makes a call to
+			// method defend for character thats defending
 			if (chars.get(i).isDefending()) {
 				attackDamage = damage.defend(chars.get(i).getSpeed(), attackDamage, chars.get(i));
 				chars.get(i).setDefending(false);
 			}
 
+			// Applies damage of attack to player character. Attack damage is 0 if defending
+			// (successfully)
 			chars.get(i).setHitPoints(chars.get(i).getHitPoints() - attackDamage);
 			System.out.println("\nThe enemy hit " + chars.get(i).getName() + " for " + attackDamage
 					+ " points of damage. \nThe hit points of " + chars.get(i).getName() + " is now "
