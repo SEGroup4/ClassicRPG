@@ -1,4 +1,3 @@
-package classicRPG.model;
 
 public class Paladin extends Character {
 	public static final int PALADIN_STRENGTH = 5;
@@ -15,6 +14,7 @@ public class Paladin extends Character {
 	public void paladinHitPoints(int hp) {
 		hp = hp + super.getStrength() * STAT_MODIFIER;
 		super.setHitPoints(hp);
+		super.setMaxHP(hp);
 	}
 	
 	public void setName(String name, String charType) {

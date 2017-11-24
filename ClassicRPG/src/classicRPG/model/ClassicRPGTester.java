@@ -1,4 +1,3 @@
-package classicRPG.model;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -116,7 +115,7 @@ public class ClassicRPGTester {
 				System.out.println(chars.get(i).getName());
 				// Provides menu choices and calculates results (see BattleMenu and Damage
 				// classes). 
-				menu.actionMenu(input, enemy, chars.get(i));
+				menu.actionMenu(input, enemy, chars.get(i), chars);
 				if (enemyFighter.getHitPoints() <= 0 && enemyMage.getHitPoints() <= 0 && enemyRogue.getHitPoints() <= 0
 						&& enemyPaladin.getHitPoints() <= 0) {
 					System.out.println("Victory! \nPress enter to continue...");
