@@ -1,3 +1,4 @@
+package classicRPG.model;
 
 public class Fighter extends Character {
 	public static final int FIGHTER_STRENGTH = 7;
@@ -14,7 +15,6 @@ public class Fighter extends Character {
 	public void fighterHitPoints(int hp) {
 		hp = hp + super.getStrength() * STAT_MODIFIER;
 		super.setHitPoints(hp);
-		super.setMaxHP(hp);
 	}
 	
 	public void setName(String name, String charType) {

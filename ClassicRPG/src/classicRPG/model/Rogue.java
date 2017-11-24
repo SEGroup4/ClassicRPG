@@ -1,3 +1,4 @@
+package classicRPG.model;
 
 public class Rogue extends Character {
 	public static final int ROGUE_STRENGTH = 4;
@@ -14,7 +15,6 @@ public class Rogue extends Character {
 	public void rogueHitPoints(int hp) {
 		hp = hp + super.getStrength() * STAT_MODIFIER;
 		super.setHitPoints(hp);
-		super.setMaxHP(hp);
 	}
 	
 	public void setName(String name, String charType) {

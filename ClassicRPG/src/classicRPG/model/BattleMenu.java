@@ -1,13 +1,12 @@
+package classicRPG.model;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BattleMenu<T extends Character> {
 	private Damage damage;
-	private Items items;
 
 	public BattleMenu() {
 		damage = new Damage();
-		items = new Items();
 	}
 
 	/**
@@ -20,7 +19,7 @@ public class BattleMenu<T extends Character> {
 	 * private enemyMenu method
 	 * @param chars the current character object of player in the for/while loop
 	 */
-	public void actionMenu(Scanner input, ArrayList<T> enemies, Character chars, ArrayList<T> dchar) {
+	public void actionMenu(Scanner input, ArrayList<T> enemies, Character chars) {
 		System.out.println("Action Menu: \n" + "1. Attack\n2. Defend\n3. Ability\n4. Item");
 		int menuItem = input.nextInt();
 
@@ -44,27 +43,6 @@ public class BattleMenu<T extends Character> {
 			System.out.println("Whom do you wish to cast your ability on?");
 			enemyMenu(input, abilityDamage, enemies);
 			break;
-		case 4:
-			//Displays the number of items, then allows you to choose which character to use said item on
-			System.out.println("Select which item to use");
-			System.out.println("1. Heals: " + items.getNumHeal());
-			System.out.println("2. Resurretions: " + items.getNumRes());
-			int itemSelect = input.nextInt();
-			switch (itemSelect) {
-			case 1:
-				System.out.println("Whom would you like to use the potion on?");
-				int healPoints = items.healChar();
-				itemChars(input, healPoints,  dchar);
-				break;
-			case 2:
-				System.out.println("Whom would you like to resurrect on?");
-				int resPoints = items.resChar(chars);
-				itemChars(input, resPoints,  dchar);
-			}
-			
-			
-			
-			break;
 		}
 	}
 
@@ -78,37 +56,6 @@ public class BattleMenu<T extends Character> {
 			System.out.println(i + ". " + element.getName() + " HP: " + element.getHitPoints());
 			i++;
 		}
-	}
-	
-	//Method to select which character to use an item on.
-	private void itemChars(Scanner input, int healPoints, ArrayList<T> chars)
-	{
-		displayChars(chars);
-		int menuItem = input.nextInt();
-		switch (menuItem) {
-		case 1:
-			Character char1 = (Character) chars.get(0);
-			char1.setHitPoints(char1.getHitPoints() + healPoints);
-			System.out.println(char1.getName() + "Was healed for " + healPoints);
-			break;
-		case 2:
-			Character char2 = (Character) chars.get(1);
-			char2.setHitPoints(char2.getHitPoints() + healPoints);
-			System.out.println(char2.getName() + "Was healed for " + healPoints);
-			break;
-		case 3:
-			Character char3 = (Character) chars.get(2);
-			char3.setHitPoints(char3.getHitPoints() + healPoints);
-			System.out.println(char3.getName() + "Was healed for " + healPoints);
-			break;
-		case 4:
-			Character char4 = (Character) chars.get(3);
-			char4.setHitPoints(char4.getHitPoints() + healPoints);
-			System.out.println(char4.getName() + "Was healed for " + healPoints);
-			break;
-		}
-		
-		
 	}
 
 	/**
