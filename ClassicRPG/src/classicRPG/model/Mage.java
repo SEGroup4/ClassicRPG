@@ -1,3 +1,4 @@
+package classicRPG.model;
 
 public class Mage extends Character {
 	public static final int MAGE_STRENGTH = 1;
@@ -14,7 +15,6 @@ public class Mage extends Character {
 	public void mageHitPoints(int hp) {
 		hp = hp + super.getStrength() * STAT_MODIFIER;
 		super.setHitPoints(hp);
-		super.setMaxHP(hp);
 	}
 	
 	public void setName(String name, String charType) {

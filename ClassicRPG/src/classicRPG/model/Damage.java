@@ -1,3 +1,4 @@
+package classicRPG.model;
 import java.util.Random;
 
 /**
