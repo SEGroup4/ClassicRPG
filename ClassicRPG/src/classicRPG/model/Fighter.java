@@ -1,3 +1,4 @@
+package classicRPG.model;
 
 public class Fighter extends Character {
 	public static final int FIGHTER_STRENGTH = 7;

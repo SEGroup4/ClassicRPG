@@ -1,3 +1,4 @@
+package classicRPG.model;
 
 public class Paladin extends Character {
 	public static final int PALADIN_STRENGTH = 5;

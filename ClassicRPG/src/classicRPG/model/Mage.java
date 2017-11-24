@@ -1,3 +1,4 @@
+package classicRPG.model;
 
 public class Mage extends Character {
 	public static final int MAGE_STRENGTH = 1;

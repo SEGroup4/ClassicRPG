@@ -1,3 +1,4 @@
+package classicRPG.model;
 
 public class Items {
 	private int resurrect;

@@ -1,3 +1,4 @@
+package classicRPG.model;
 
 public class Character {
 	public static final int STAT_MODIFIER = 2;

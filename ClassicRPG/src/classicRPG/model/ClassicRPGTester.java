@@ -1,3 +1,4 @@
+package classicRPG.model;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;

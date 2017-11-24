@@ -1,3 +1,4 @@
+package classicRPG.model;
 
 public class Rogue extends Character {
 	public static final int ROGUE_STRENGTH = 4;
