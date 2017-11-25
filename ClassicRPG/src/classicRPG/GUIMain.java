@@ -1,7 +1,10 @@
 package classicRPG;
 
 import java.io.IOException;
+
+import classicRPG.view.BattleScreenController;
 import classicRPG.view.IntroScreenController;
+import classicRPG.view.LevelUpController;
 import classicRPG.view.OverworldController;
 import classicRPG.view.OverworldStatusController;
 import javafx.application.Application;
@@ -92,11 +95,37 @@ public class GUIMain extends Application {
 	}
 	
 	public void showBattle() {
-		
+		try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(GUIMain.class.getResource("view/BattleScreen.fxml"));
+            AnchorPane battle = (AnchorPane) loader.load();
+
+            this.battle = new Scene(battle);
+            mainStage.setScene(this.battle);
+            mainStage.show();
+            BattleScreenController battleController = loader.getController();
+            battleController.setMain(this);
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 	
 	public void showLevelUp() {
-		
+		try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(GUIMain.class.getResource("view/LevelUp.fxml"));
+            AnchorPane levelUp = (AnchorPane) loader.load();
+
+            this.levelUp = new Scene(levelUp);
+            mainStage.setScene(this.levelUp);
+            mainStage.show();
+            LevelUpController levelUpController = loader.getController();
+            levelUpController.setMain(this);
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 	
 	public void showCredits() {

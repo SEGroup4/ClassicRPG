@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classicRPG.view.OverworldController">
-	<!-- TODO Add Nodes -->
+   <children>
+      <Button layoutX="202.0" layoutY="250.0" mnemonicParsing="false" onAction="#handleBattle" text="BattleTester" />
+      <Button layoutX="460.0" layoutY="250.0" mnemonicParsing="false" onAction="#handleLevelUp" text="LevelUpTester" />
+      <Button layoutX="722.0" layoutY="250.0" mnemonicParsing="false" onAction="#handleCredits" text="CreditsTester" />
+   </children>
 </AnchorPane>

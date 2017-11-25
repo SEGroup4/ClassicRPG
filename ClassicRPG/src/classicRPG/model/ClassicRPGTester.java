@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ClassicRPGTester {
 	public static final int ALL_CLASS_HP = 20;
 
-	public static void main(String[] args) throws FileNotFoundException, IOException {
+	public static int main(String[] args) throws FileNotFoundException, IOException {
 		Scanner input = new Scanner(System.in);
 		Fighter fight = new Fighter();
 		Fighter enemyFight = new Fighter();
@@ -143,6 +143,6 @@ public class ClassicRPGTester {
 			}
 		}
 		input.close();
+		return 0;
 	}
-
 }

@@ -11,5 +11,16 @@ private GUIMain main;
 		this.main = main;
 	}
 	
-	
+	@FXML
+	public void handleBattle() {
+		main.showBattle();
+	}
+	@FXML
+	public void handleLevelUp() {
+		main.showLevelUp();
+	}
+	@FXML
+	public void handleCredits() {
+		main.showCredits();
+	}
 }
