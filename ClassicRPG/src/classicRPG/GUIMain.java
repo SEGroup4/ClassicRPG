@@ -1,6 +1,7 @@
 package classicRPG;
 
 import java.io.IOException;
+import javafx.util.Duration;
 
 import classicRPG.view.BattleScreenController;
 import classicRPG.view.CreditsController;
@@ -8,6 +9,7 @@ import classicRPG.view.IntroScreenController;
 import classicRPG.view.LevelUpController;
 import classicRPG.view.OverworldController;
 import classicRPG.view.OverworldStatusController;
+import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -39,6 +41,13 @@ public class GUIMain extends Application {
 		launch(args);
 	}
 	
+	public void fadeIn() {
+		FadeTransition fadeIn = new FadeTransition(Duration.millis(1000), mainStage.getScene().getRoot());
+		fadeIn.setFromValue(0.0);
+		fadeIn.setToValue(1.0);
+		fadeIn.play();
+	}
+	
 	public void startGame() {
 		try {
             FXMLLoader loader = new FXMLLoader();
@@ -50,6 +59,8 @@ public class GUIMain extends Application {
             mainStage.show();
             IntroScreenController introController = loader.getController();
             introController.setMain(this);
+            
+            fadeIn();
         } 
         catch (IOException e) {
             e.printStackTrace();
@@ -83,12 +94,15 @@ public class GUIMain extends Application {
             overworldCombiner.setCenter(this.overworld);
             
             mainStage.setScene(this.overworldCombiner);
+            mainStage.getScene().getRoot().setOpacity(0);
             mainStage.show();
             OverworldStatusController overworldStatusController = loader1.getController();
             overworldStatusController.setMain(this);
 
             OverworldController overworldController = loader2.getController();
             overworldController.setMain(this);
+            
+            fadeIn();
         } 
         catch (IOException e) {
             e.printStackTrace();
@@ -106,6 +120,8 @@ public class GUIMain extends Application {
             mainStage.show();
             BattleScreenController battleController = loader.getController();
             battleController.setMain(this);
+            
+            fadeIn();
         } 
         catch (IOException e) {
             e.printStackTrace();
@@ -123,6 +139,8 @@ public class GUIMain extends Application {
             mainStage.show();
             LevelUpController levelUpController = loader.getController();
             levelUpController.setMain(this);
+            
+            fadeIn();
         } 
         catch (IOException e) {
             e.printStackTrace();
@@ -140,6 +158,8 @@ public class GUIMain extends Application {
             mainStage.show();
             CreditsController creditsController = loader.getController();
             creditsController.setMain(this);
+            
+            fadeIn();
         } 
         catch (IOException e) {
             e.printStackTrace();

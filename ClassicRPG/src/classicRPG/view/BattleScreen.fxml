@@ -23,7 +23,10 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Warrior" />
+            <Label text="Warrior">
+               <font>
+                  <Font name="Arial" size="36.0" />
+               </font></Label>
             <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="386.0" text="Attack" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
@@ -48,7 +51,10 @@
       </GridPane>
       <GridPane layoutX="372.0" layoutY="404.0" prefHeight="282.0" prefWidth="200.0">
          <children>
-            <Label text="Mage" />
+            <Label text="Mage">
+               <font>
+                  <Font name="Arial" size="36.0" />
+               </font></Label>
             <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="386.0" text="Attack" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
@@ -85,7 +91,10 @@
       </GridPane>
       <GridPane layoutX="617.0" layoutY="404.0" prefHeight="282.0" prefWidth="200.0">
          <children>
-            <Label text="Thief" />
+            <Label text="Thief">
+               <font>
+                  <Font name="Arial" size="36.0" />
+               </font></Label>
             <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="386.0" text="Attack" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
@@ -122,7 +131,10 @@
       </GridPane>
       <GridPane layoutX="856.0" layoutY="404.0" prefHeight="282.0" prefWidth="200.0">
          <children>
-            <Label text="Paladin" />
+            <Label text="Paladin">
+               <font>
+                  <Font name="Arial" size="36.0" />
+               </font></Label>
             <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="386.0" text="Attack" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
