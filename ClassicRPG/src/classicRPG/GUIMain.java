@@ -3,6 +3,7 @@ package classicRPG;
 import java.io.IOException;
 
 import classicRPG.view.BattleScreenController;
+import classicRPG.view.CreditsController;
 import classicRPG.view.IntroScreenController;
 import classicRPG.view.LevelUpController;
 import classicRPG.view.OverworldController;
@@ -129,7 +130,20 @@ public class GUIMain extends Application {
 	}
 	
 	public void showCredits() {
-		
+		try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(GUIMain.class.getResource("view/Credits.fxml"));
+            AnchorPane credits = (AnchorPane) loader.load();
+
+            this.credits = new Scene(credits);
+            mainStage.setScene(this.credits);
+            mainStage.show();
+            CreditsController creditsController = loader.getController();
+            creditsController.setMain(this);
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 	
 }
