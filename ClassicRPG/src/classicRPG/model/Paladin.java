@@ -15,6 +15,7 @@ public class Paladin extends Character {
 	public void paladinHitPoints(int hp) {
 		hp = hp + super.getStrength() * STAT_MODIFIER;
 		super.setHitPoints(hp);
+		super.setMaxHP(hp);
 	}
 	
 	public void setName(String name, String charType) {

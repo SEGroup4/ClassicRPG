@@ -4,6 +4,7 @@ public class Character {
 	public static final int STAT_MODIFIER = 2;
 	private String name;
 	private int hitPoints;
+	private int maxHitPoints;
 	private int magicPoints;
 	private int speed;
 	private int strength;
@@ -11,6 +12,7 @@ public class Character {
 
 	public Character() {
 		this.hitPoints = 0;
+		this.maxHitPoints = 0;
 		this.magicPoints = 0;
 		this.speed = 0;
 		this.strength = 0;
@@ -47,6 +49,16 @@ public class Character {
 			hitPoints = 0;
 		}
 		this.hitPoints = hitPoints;
+	}
+	
+	//@return the characters maxHitPoints
+	public int getMaxHP() {
+		return maxHitPoints;
+	}
+	
+	public void setMaxHP(int maxHitPoints)
+	{
+		this.maxHitPoints = maxHitPoints;
 	}
 
 	/**

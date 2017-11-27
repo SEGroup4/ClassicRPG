@@ -15,6 +15,7 @@ public class Fighter extends Character {
 	public void fighterHitPoints(int hp) {
 		hp = hp + super.getStrength() * STAT_MODIFIER;
 		super.setHitPoints(hp);
+		super.setMaxHP(hp);
 	}
 	
 	public void setName(String name, String charType) {
