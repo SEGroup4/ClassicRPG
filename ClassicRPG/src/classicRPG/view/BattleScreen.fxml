@@ -23,26 +23,26 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Warrior">
+            <Label text="Fighter">
                <font>
                   <Font name="Arial" size="36.0" />
                </font></Label>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="386.0" text="Attack" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="fighterAttack" mnemonicParsing="false" onAction="#handleAttack" prefHeight="39.0" prefWidth="386.0" text="Attack" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="201.0" text="Guard" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="fighterDefend" mnemonicParsing="false" onAction="#handleGuard" prefHeight="39.0" prefWidth="201.0" text="Guard" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="267.0" text="Abilities" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Button fx:id="fighterAbility" mnemonicParsing="false" onAction="#handleAbility" prefHeight="39.0" prefWidth="267.0" text="Abilities" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="198.0" text="Items" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+            <Button fx:id="fighterItem" mnemonicParsing="false" onAction="#handleItem" prefHeight="23.0" prefWidth="198.0" text="Items" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
@@ -55,22 +55,22 @@
                <font>
                   <Font name="Arial" size="36.0" />
                </font></Label>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="386.0" text="Attack" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="mageAttack" mnemonicParsing="false" onAction="#handleAttack" prefHeight="39.0" prefWidth="386.0" text="Attack" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="201.0" text="Guard" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="mageDefend" mnemonicParsing="false" onAction="#handleGuard" prefHeight="39.0" prefWidth="201.0" text="Guard" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="267.0" text="Abilities" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Button fx:id="mageAbility" mnemonicParsing="false" onAction="#handleAbility" prefHeight="39.0" prefWidth="267.0" text="Abilities" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="198.0" text="Items" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+            <Button fx:id="mageItem" mnemonicParsing="false" onAction="#handleItem" prefHeight="23.0" prefWidth="198.0" text="Items" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
@@ -91,26 +91,26 @@
       </GridPane>
       <GridPane layoutX="617.0" layoutY="404.0" prefHeight="282.0" prefWidth="200.0">
          <children>
-            <Label text="Thief">
+            <Label text="Rogue">
                <font>
                   <Font name="Arial" size="36.0" />
                </font></Label>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="386.0" text="Attack" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="rogueAttack" mnemonicParsing="false" onAction="#handleAttack" prefHeight="39.0" prefWidth="386.0" text="Attack" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="201.0" text="Guard" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="rogueDefend" mnemonicParsing="false" onAction="#handleGuard" prefHeight="39.0" prefWidth="201.0" text="Guard" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="267.0" text="Abilities" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Button fx:id="rogueAbility" mnemonicParsing="false" onAction="#handleAbility" prefHeight="39.0" prefWidth="267.0" text="Abilities" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="198.0" text="Items" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+            <Button fx:id="rogueItem" mnemonicParsing="false" onAction="#handleItem" prefHeight="23.0" prefWidth="198.0" text="Items" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
@@ -135,22 +135,22 @@
                <font>
                   <Font name="Arial" size="36.0" />
                </font></Label>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="386.0" text="Attack" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="paladinAttack" mnemonicParsing="false" onAction="#handleAttack" prefHeight="39.0" prefWidth="386.0" text="Attack" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="201.0" text="Guard" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="paladinDefend" mnemonicParsing="false" onAction="#handleGuard" prefHeight="39.0" prefWidth="201.0" text="Guard" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="267.0" text="Abilities" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Button fx:id="paladinAbility" mnemonicParsing="false" onAction="#handleAbility" prefHeight="39.0" prefWidth="267.0" text="Abilities" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="198.0" text="Items" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+            <Button fx:id="paladinItem" mnemonicParsing="false" onAction="#handleItem" prefHeight="23.0" prefWidth="198.0" text="Items" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>

@@ -120,9 +120,10 @@ public class GUIMain extends Application {
             mainStage.show();
             BattleScreenController battleController = loader.getController();
             battleController.setMain(this);
-            
+
             fadeIn();
-        } 
+            battleController.doBattle();
+		} 
         catch (IOException e) {
             e.printStackTrace();
         }
