@@ -52,7 +52,7 @@ public class ClassicRPGTester {
 		mage.setName(name, "(Mage)");
 		System.out.println("Name your Rogue: ");
 		name = input.nextLine();
-		rogue.setName(name, ("Rogue"));
+		rogue.setName(name, ("(Rogue)"));
 		System.out.println("Name your Paladin: ");
 		name = input.nextLine();
 		paladin.setName(name, "(Paladin)");
@@ -142,6 +142,7 @@ public class ClassicRPGTester {
 				}
 			}
 		}
+		
 		input.close();
 	}
 }

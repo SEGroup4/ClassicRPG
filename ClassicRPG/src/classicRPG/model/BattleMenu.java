@@ -61,10 +61,10 @@ public class BattleMenu<T extends Character> {
 				System.out.println("Whom would you like to resurrect on?");
 				int resPoints = items.resChar(chars);
 				itemChars(input, resPoints,  dchar);
+				break;
 			}
-			
-			
-			
+		default:
+			System.out.println("Character performs no action.");
 			break;
 		}
 	}
@@ -73,7 +73,7 @@ public class BattleMenu<T extends Character> {
 	 * Displays all character data relevant for a battle sequence
 	 * @param chars the objects in player and/or enemy array list
 	 */
-	private void displayChars(ArrayList<T> chars) {
+	public void displayChars(ArrayList<T> chars) {
 		int i = 1;
 		for (T element : chars) {
 			System.out.println(i + ". " + element.getName() + " HP: " + element.getHitPoints());
@@ -90,22 +90,22 @@ public class BattleMenu<T extends Character> {
 		case 1:
 			Character char1 = (Character) chars.get(0);
 			char1.setHitPoints(char1.getHitPoints() + healPoints);
-			System.out.println(char1.getName() + "Was healed for " + healPoints);
+			System.out.println(char1.getName() + " Was healed for " + healPoints);
 			break;
 		case 2:
 			Character char2 = (Character) chars.get(1);
 			char2.setHitPoints(char2.getHitPoints() + healPoints);
-			System.out.println(char2.getName() + "Was healed for " + healPoints);
+			System.out.println(char2.getName() + " Was healed for " + healPoints);
 			break;
 		case 3:
 			Character char3 = (Character) chars.get(2);
 			char3.setHitPoints(char3.getHitPoints() + healPoints);
-			System.out.println(char3.getName() + "Was healed for " + healPoints);
+			System.out.println(char3.getName() + " Was healed for " + healPoints);
 			break;
 		case 4:
 			Character char4 = (Character) chars.get(3);
 			char4.setHitPoints(char4.getHitPoints() + healPoints);
-			System.out.println(char4.getName() + "Was healed for " + healPoints);
+			System.out.println(char4.getName() + " Was healed for " + healPoints);
 			break;
 		}
 		

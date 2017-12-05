@@ -39,4 +39,11 @@ public class Files {
 		return monster;
 	}
 
+	/**
+	 * @return the fileIn
+	 */
+	public Scanner getFileIn() {
+		return fileIn;
+	}
+
 }
