@@ -22,7 +22,4 @@ public class Fighter extends Character {
 		super.setName(name, charType);
 	}
 	
-//	public void levelUp() {
-		
-//	}
 }
