@@ -22,6 +22,10 @@ public class Files {
 		fileIn.useDelimiter("\\.|\\n|\\r");
 	}
 	
+	/**
+	 * Returns a randomly selected monster type out of 35 possible selections
+	 * @return the monster type
+	 */
 	public String readMonster() {
 		Damage random = new Damage();
 		String monster = "";
@@ -40,7 +44,7 @@ public class Files {
 	}
 
 	/**
-	 * @return the fileIn
+	 * @return the file
 	 */
 	public Scanner getFileIn() {
 		return fileIn;
