@@ -111,7 +111,7 @@ public class Character {
 	}
 
 	/**
-	 * @param defending the defending to set
+	 * @param defending the boolean value of defend
 	 */
 	public void setDefending(boolean defending) {
 		this.defending = defending;
