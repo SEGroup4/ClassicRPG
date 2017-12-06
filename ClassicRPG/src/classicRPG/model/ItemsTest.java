@@ -12,12 +12,12 @@ public class ItemsTest {
 	}
 
 	@Test
-	public void resurrectShouldReturnFive() {
+	public void numberOfResurrectItemsShouldReturnFive() {
 		assertEquals(5, item.getNumRes());
 	}
 	
 	@Test
-	public void healShouldReturnFive() {
+	public void numberOfHealItemsShouldReturnFive() {
 		assertEquals(5, item.getNumHeal());
 	}
 	
