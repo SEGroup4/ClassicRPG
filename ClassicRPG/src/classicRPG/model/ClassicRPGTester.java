@@ -70,9 +70,7 @@ public class ClassicRPGTester {
 		// Character)
 		String monsterType = files.readMonster();
 		enemyFighter.setName(monsterType, "");
-		// This needs to be caught in a catch block. Not hard just havnt gotten to it
-		// yet
-		files.openMonsters(); // Need to fix throws declaration here by adding catch...
+		files.openMonsters(); 
 		monsterType = files.readMonster();
 		enemyMage.setName(monsterType, "");
 		files.openMonsters();
@@ -96,16 +94,11 @@ public class ClassicRPGTester {
 		enemyThief.rogueHitPoints(ALL_CLASS_HP);
 		enemyPald.paladinHitPoints(ALL_CLASS_HP);
 
-		// Just lists character names, their class (fighter, mage, etc), and hit points
-		// for user
 		for (Character element : chars) {
 			System.out.println(element.getName());
 			System.out.println("HP: " + element.getHitPoints() + "\n");
 		}
 
-		// These while statements could easily be changed to a for loop, and probably
-		// could work better as a for loop. Just changed it trying to get something to
-		// work, but ditched using that 'something.'
 		boolean flag = false;
 		// Loop for entire battle sequence. Multiple iterations of player and enemy
 		// turns
@@ -114,8 +107,7 @@ public class ClassicRPGTester {
 			// Player turn. Each iteration is another player's character turn
 			while (i <= (enemy.size() - 1)) {
 				System.out.println(chars.get(i).getName());
-				// Provides menu choices and calculates results (see BattleMenu and Damage
-				// classes). 
+				// Provides menu choices and calculates results 
 				menu.actionMenu(input, enemy, chars.get(i), chars);
 				if (enemyFighter.getHitPoints() <= 0 && enemyMage.getHitPoints() <= 0 && enemyRogue.getHitPoints() <= 0
 						&& enemyPaladin.getHitPoints() <= 0) {

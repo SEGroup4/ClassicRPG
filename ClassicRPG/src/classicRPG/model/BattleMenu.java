@@ -124,9 +124,6 @@ public class BattleMenu<T extends Character> {
 	private void enemyMenu(Scanner input, int enemyDamage, ArrayList<T> enemies) {
 		boolean flag = false;
 
-		// This while loop could also be changed to a for loop and probably would be 
-		// better if it was.  Corrections like this here and the loops in main I can 
-		// get to when I have time unless someone else does it.
 		while (!flag) {
 			displayChars(enemies);
 			int menuItem = input.nextInt();
